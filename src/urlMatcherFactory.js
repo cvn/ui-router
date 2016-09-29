@@ -19,6 +19,9 @@ var $$UMFP; // reference to $UrlMatcherFactoryProvider
  * * `'{' name '}'` - curly placeholder
  * * `'{' name ':' regexp|type '}'` - curly placeholder with regexp or type name. Should the
  *   regexp itself contain curly braces, they must be in matched pairs or escaped with a backslash.
+ *   Note that a RegExp parameter will encode its value with `string` ParamType encoding: "/" as "~2F", and "~" as "~~". 
+ *   When matching these characters, use the encoded versions in the regexp.
+ *   See issue [#2540](https://github.com/angular-ui/ui-router/issues/2540) for more information.
  *
  * Parameter names may contain only word characters (latin letters, digits, and underscore) and
  * must be unique within the pattern (across both path and search parameters). For colon
